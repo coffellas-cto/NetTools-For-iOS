@@ -8,6 +8,7 @@
 
 #import "GDPingViewController.h"
 #import "GDTextFieldCell.h"
+#import "GDPingOperation.h"
 
 @interface GDPingViewController () <UITextFieldDelegate>
 
@@ -16,6 +17,7 @@
 @implementation GDPingViewController {
     dispatch_once_t _onceToken;
     UITextField *_textField;
+    GDLogger *_logger;
 }
 
 #pragma mark - UITextFieldDelegate
@@ -28,6 +30,25 @@
 
 #pragma mark - Parent Methods
 
+- (NSOperation *)generateOperation {
+    return [[GDPingOperation alloc] initWithLogger:_logger];
+}
+
+- (BOOL)shouldStartWorking {
+    if (_textField.text.length > 0) {
+        return YES;
+    }
+    
+    [[[UIAlertView alloc] initWithTitle:@"Attention" message:@"IP or domain name cannot be empty" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil] show];
+    [_textField becomeFirstResponder];
+    return NO;
+}
+
+- (void)startWorking {
+    ((GDPingOperation *)_operation).hostString = _textField.text;
+    [super startWorking];
+}
+
 - (void)didStartWorking {
     _textField.enabled = NO;
     _textField.alpha = 0.5f;
@@ -39,7 +60,6 @@
 }
 
 - (NSInteger)numberOfRowsInToolSection {
-    // To be overridden by children
     return 1;
 }
 
@@ -58,12 +78,10 @@
 }
 
 - (NSString *)titleForHeaderInToolSection {
-    // To be overridden by children
     return @"Ping";
 }
 
 - (CGFloat)heightForRowInToolSection:(NSInteger)row {
-    // To be overridden by children
     return 44.0f;
 }
 
@@ -72,6 +90,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Ping";
+    _logger = [GDLogger new];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

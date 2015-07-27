@@ -8,14 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@interface GDBaseToolViewController : UITableViewController
-
-- (void)startWorking;
+@interface GDBaseToolViewController : UITableViewController {
+@protected
+    NSOperation *_operation;
+}
 
 @property (nonatomic, readonly, getter=isWorking) BOOL working;
 
+- (void)startWorking;
+
 - (void)didStartWorking;
 - (void)didFinishWorking;
+- (BOOL)shouldStartWorking;
+
+- (NSOperation *)generateOperation;
 
 - (NSInteger)numberOfRowsInToolSection;
 - (UITableViewCell *)cellForToolSectionRow:(NSInteger)row;

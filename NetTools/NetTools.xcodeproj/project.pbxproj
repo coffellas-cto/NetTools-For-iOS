@@ -18,6 +18,9 @@
 		9AEC9C4A1B65078500B25AFF /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C451B65078500B25AFF /* main.m */; };
 		9AEC9C4B1B65078500B25AFF /* NetTools.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C461B65078500B25AFF /* NetTools.xcdatamodeld */; };
 		9AEC9C5E1B65135200B25AFF /* GDTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C5D1B65135200B25AFF /* GDTextFieldCell.m */; };
+		9AEC9C621B66A76600B25AFF /* GDNetOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C611B66A76600B25AFF /* GDNetOperation.m */; };
+		9AEC9C691B66A8D800B25AFF /* GDPingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C681B66A8D800B25AFF /* GDPingOperation.m */; };
+		9AEC9C6D1B66B43300B25AFF /* GDLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C6C1B66B43300B25AFF /* GDLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +56,12 @@
 		9AEC9C4C1B650A5A00B25AFF /* PrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PrefixHeader.pch; sourceTree = "<group>"; };
 		9AEC9C5C1B65135200B25AFF /* GDTextFieldCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTextFieldCell.h; sourceTree = "<group>"; };
 		9AEC9C5D1B65135200B25AFF /* GDTextFieldCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDTextFieldCell.m; sourceTree = "<group>"; };
+		9AEC9C601B66A76600B25AFF /* GDNetOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDNetOperation.h; sourceTree = "<group>"; };
+		9AEC9C611B66A76600B25AFF /* GDNetOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDNetOperation.m; sourceTree = "<group>"; };
+		9AEC9C671B66A8D800B25AFF /* GDPingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDPingOperation.h; sourceTree = "<group>"; };
+		9AEC9C681B66A8D800B25AFF /* GDPingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDPingOperation.m; sourceTree = "<group>"; };
+		9AEC9C6B1B66B43300B25AFF /* GDLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDLogger.h; sourceTree = "<group>"; };
+		9AEC9C6C1B66B43300B25AFF /* GDLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDLogger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,7 +103,9 @@
 		9AEC9C081B64FFE000B25AFF /* NetTools */ = {
 			isa = PBXGroup;
 			children = (
+				9AEC9C5F1B66A74300B25AFF /* Tasks */,
 				9AEC9C321B6500A700B25AFF /* UI */,
+				9AEC9C6A1B66B43300B25AFF /* Helpers */,
 				9AEC9C3E1B65074100B25AFF /* Constants */,
 				9AEC9C0D1B64FFE000B25AFF /* AppDelegate.h */,
 				9AEC9C0E1B64FFE000B25AFF /* AppDelegate.m */,
@@ -171,6 +182,26 @@
 				9AEC9C5D1B65135200B25AFF /* GDTextFieldCell.m */,
 			);
 			path = Views;
+			sourceTree = "<group>";
+		};
+		9AEC9C5F1B66A74300B25AFF /* Tasks */ = {
+			isa = PBXGroup;
+			children = (
+				9AEC9C601B66A76600B25AFF /* GDNetOperation.h */,
+				9AEC9C611B66A76600B25AFF /* GDNetOperation.m */,
+				9AEC9C671B66A8D800B25AFF /* GDPingOperation.h */,
+				9AEC9C681B66A8D800B25AFF /* GDPingOperation.m */,
+			);
+			path = Tasks;
+			sourceTree = "<group>";
+		};
+		9AEC9C6A1B66B43300B25AFF /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				9AEC9C6B1B66B43300B25AFF /* GDLogger.h */,
+				9AEC9C6C1B66B43300B25AFF /* GDLogger.m */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -272,13 +303,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9AEC9C6D1B66B43300B25AFF /* GDLogger.m in Sources */,
 				9AEC9C5E1B65135200B25AFF /* GDTextFieldCell.m in Sources */,
 				9AEC9C371B6500C100B25AFF /* GDMainViewController.m in Sources */,
 				9AEC9C3A1B65038900B25AFF /* GDBaseToolViewController.m in Sources */,
 				9AEC9C3D1B65064600B25AFF /* GDPingViewController.m in Sources */,
 				9AEC9C0F1B64FFE000B25AFF /* AppDelegate.m in Sources */,
 				9AEC9C411B65075000B25AFF /* Constants.m in Sources */,
+				9AEC9C691B66A8D800B25AFF /* GDPingOperation.m in Sources */,
 				9AEC9C4B1B65078500B25AFF /* NetTools.xcdatamodeld in Sources */,
+				9AEC9C621B66A76600B25AFF /* GDNetOperation.m in Sources */,
 				9AEC9C4A1B65078500B25AFF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -472,6 +506,7 @@
 				9AEC9C2E1B64FFE000B25AFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9AEC9C2F1B64FFE000B25AFF /* Build configuration list for PBXNativeTarget "NetToolsTests" */ = {
 			isa = XCConfigurationList;
@@ -480,6 +515,7 @@
 				9AEC9C311B64FFE000B25AFF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

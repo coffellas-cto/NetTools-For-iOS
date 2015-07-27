@@ -47,9 +47,25 @@
         return;
     }
     
-    _working = !_working;
+    NSOperationQueue *newQueue = [[NSOperationQueue alloc] init];
+    newQueue.name = NSStringFromClass([_operation class]);
+    [newQueue addOperation:_operation];
+    
+    _working = YES;
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:(UITableViewRowAnimationFade)];
     [self didStartWorking];
+}
+
+- (void)stopWorking {
+    if (!_working) {
+        return;
+    }
+    
+    [_operation cancel];
+    
+    _working = NO;
+    [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:(UITableViewRowAnimationFade)];
+    [self didFinishWorking];
 }
 
 #pragma mark - Protected Methods
@@ -80,6 +96,17 @@
 - (CGFloat)heightForRowInToolSection:(NSInteger)row {
     // To be overridden by children
     return 0.0f;
+}
+
+- (BOOL)shouldStartWorking {
+    // To be overridden by children
+    return YES;
+}
+
+- (NSOperation *)generateOperation {
+    // To be overridden by children
+    [NSException raise:NSInternalInconsistencyException format:@"%s must be overridden by children", __PRETTY_FUNCTION__];
+    return nil;
 }
 
 #pragma mark - Table view data source
@@ -171,13 +198,13 @@
     }
     
     if (indexPath.section == 1) {
-        BOOL wasWorking = _working;
-        _working = !_working;
-        [tableView reloadSections:[NSIndexSet indexSetWithIndex:indexPath.section] withRowAnimation:(UITableViewRowAnimationFade)];
-        if (wasWorking) {
-            [self didFinishWorking];
+        if (_working) {
+            [self stopWorking];
+        } else if ([self shouldStartWorking]) {
+            _operation = [self generateOperation];
+            [self startWorking];
         } else {
-            [self didStartWorking];
+            [tableView deselectRowAtIndexPath:indexPath animated:YES];
         }
     }
 }
@@ -200,6 +227,10 @@
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+- (void)dealloc {
+    [_operation cancel];
 }
 
 @end
