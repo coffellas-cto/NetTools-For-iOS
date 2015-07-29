@@ -9,7 +9,6 @@
 #import "GDPingViewController.h"
 #import "GDTextFieldCell.h"
 #import "GDPingOperation.h"
-#import "GDTextViewLogger.h"
 
 @interface GDPingViewController () <UITextFieldDelegate>
 @end
@@ -29,8 +28,8 @@
 
 #pragma mark - Parent Methods
 
-- (NSOperation *)generateOperation {
-    return [[GDPingOperation alloc] initWithLogger:self.logger];
+- (Class)operationClass {
+    return [GDPingOperation class];
 }
 
 - (BOOL)shouldStartWorking {
@@ -43,9 +42,8 @@
     return NO;
 }
 
-- (void)startWorking {
+- (void)prepareForWorking {
     ((GDPingOperation *)_operation).hostString = _textField.text;
-    [super startWorking];
 }
 
 - (void)didStartWorking {

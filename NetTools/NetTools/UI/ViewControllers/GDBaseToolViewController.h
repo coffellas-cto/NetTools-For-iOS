@@ -20,11 +20,13 @@
 
 - (void)startWorking;
 
+- (void)prepareForWorking;
 - (void)didStartWorking;
 - (void)didFinishWorking;
 - (BOOL)shouldStartWorking;
 
 - (NSOperation *)generateOperation;
+- (Class)operationClass;
 
 - (NSInteger)numberOfRowsInToolSection;
 - (UITableViewCell *)cellForToolSectionRow:(NSInteger)row;

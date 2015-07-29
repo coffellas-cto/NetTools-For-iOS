@@ -8,6 +8,7 @@
 
 #import "GDBaseToolViewController.h"
 #import "GDTextViewLogger.h"
+#import "GDNetOperation.h"
 
 const NSInteger logCellIndex = 2;
 
@@ -70,6 +71,8 @@ const NSInteger logCellIndex = 2;
         return;
     }
     
+    [self prepareForWorking];
+    
     NSOperationQueue *newQueue = [[NSOperationQueue alloc] init];
     newQueue.name = NSStringFromClass([_operation class]);
     [newQueue addOperation:_operation];
@@ -92,6 +95,10 @@ const NSInteger logCellIndex = 2;
 }
 
 #pragma mark - Protected Methods
+
+- (void)prepareForWorking {
+    // To be overridden by children
+}
 
 - (void)didStartWorking {
     // To be overridden by children
@@ -127,6 +134,11 @@ const NSInteger logCellIndex = 2;
 }
 
 - (NSOperation *)generateOperation {
+    // To be overridden by children
+    return nil;
+}
+
+- (Class)operationClass {
     // To be overridden by children
     [NSException raise:NSInternalInconsistencyException format:@"%s must be overridden by children", __PRETTY_FUNCTION__];
     return nil;
@@ -225,6 +237,9 @@ const NSInteger logCellIndex = 2;
             [self stopWorking];
         } else if ([self shouldStartWorking]) {
             _operation = [self generateOperation];
+            if (!_operation) {
+                _operation = [[[self operationClass] alloc] initWithLogger:self.logger];
+            }
             [self startWorking];
         } else {
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
