@@ -26,9 +26,11 @@
     // (1) Resolve domain
     
     // (2) Start sending packets
+    int i = 0;
     do {
-        [self.logger logLine:_hostString];
-        sleep(1);
+        [self.logger logLine:[NSString stringWithFormat:@"%@ %@", _hostString, @(i)]];
+        usleep(1000 * 1000 * 1);
+        i++;
     } while (!self.cancelled);
 }
 

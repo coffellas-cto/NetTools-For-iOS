@@ -21,6 +21,7 @@
 		9AEC9C621B66A76600B25AFF /* GDNetOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C611B66A76600B25AFF /* GDNetOperation.m */; };
 		9AEC9C691B66A8D800B25AFF /* GDPingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C681B66A8D800B25AFF /* GDPingOperation.m */; };
 		9AEC9C6D1B66B43300B25AFF /* GDLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C6C1B66B43300B25AFF /* GDLogger.m */; };
+		9AEC9C701B69559D00B25AFF /* GDTextViewLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C6F1B69559D00B25AFF /* GDTextViewLogger.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -62,6 +63,8 @@
 		9AEC9C681B66A8D800B25AFF /* GDPingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDPingOperation.m; sourceTree = "<group>"; };
 		9AEC9C6B1B66B43300B25AFF /* GDLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDLogger.h; sourceTree = "<group>"; };
 		9AEC9C6C1B66B43300B25AFF /* GDLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDLogger.m; sourceTree = "<group>"; };
+		9AEC9C6E1B69559D00B25AFF /* GDTextViewLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTextViewLogger.h; sourceTree = "<group>"; };
+		9AEC9C6F1B69559D00B25AFF /* GDTextViewLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDTextViewLogger.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,6 +203,8 @@
 			children = (
 				9AEC9C6B1B66B43300B25AFF /* GDLogger.h */,
 				9AEC9C6C1B66B43300B25AFF /* GDLogger.m */,
+				9AEC9C6E1B69559D00B25AFF /* GDTextViewLogger.h */,
+				9AEC9C6F1B69559D00B25AFF /* GDTextViewLogger.m */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -307,6 +312,7 @@
 				9AEC9C5E1B65135200B25AFF /* GDTextFieldCell.m in Sources */,
 				9AEC9C371B6500C100B25AFF /* GDMainViewController.m in Sources */,
 				9AEC9C3A1B65038900B25AFF /* GDBaseToolViewController.m in Sources */,
+				9AEC9C701B69559D00B25AFF /* GDTextViewLogger.m in Sources */,
 				9AEC9C3D1B65064600B25AFF /* GDPingViewController.m in Sources */,
 				9AEC9C0F1B64FFE000B25AFF /* AppDelegate.m in Sources */,
 				9AEC9C411B65075000B25AFF /* Constants.m in Sources */,

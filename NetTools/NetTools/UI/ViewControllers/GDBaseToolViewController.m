@@ -7,6 +7,9 @@
 //
 
 #import "GDBaseToolViewController.h"
+#import "GDTextViewLogger.h"
+
+const NSInteger logCellIndex = 2;
 
 #pragma mark - GDLogCell
 
@@ -24,6 +27,7 @@
         _logTextView.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleHeight;
         _logTextView.editable = NO;
         _logTextView.font = [UIFont fontWithName:@"Courier" size:14.0f];
+        _logTextView.contentInset = UIEdgeInsetsZero;
         
         [self.contentView addSubview:_logTextView];
     }
@@ -36,9 +40,28 @@
 
 @interface GDBaseToolViewController ()
 
+@property (nonatomic, readonly) UITextView *logTextView;
+
 @end
 
 @implementation GDBaseToolViewController
+
+#pragma mark - Accessors
+
+@synthesize logger = _logger;
+
+- (GDTextViewLogger *)logger {
+    if (!_logger) {
+        _logger = [[GDTextViewLogger alloc] initWithTextView:self.logTextView];
+    }
+    
+    return _logger;
+}
+
+- (UITextView *)logTextView {
+    GDLogCell *cell = (GDLogCell *)[self.tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:logCellIndex]];
+    return cell.logTextView;
+}
 
 #pragma mark - Public Methods
 
@@ -132,7 +155,7 @@
     
     NSString *cellID = @"baseCellID";
     Class cellClass = [UITableViewCell class];
-    if (indexPath.section == 3) {
+    if (indexPath.section == logCellIndex) {
         cellID = @"logCellID";
         cellClass = [GDLogCell class];
     }

@@ -16,4 +16,14 @@
     }];
 }
 
+- (instancetype)init
+{
+    self = [super init];
+    if (self) {
+        _dateFormatter = [NSDateFormatter new];
+        _dateFormatter.dateFormat = @"hh:mm:ss";
+    }
+    return self;
+}
+
 @end

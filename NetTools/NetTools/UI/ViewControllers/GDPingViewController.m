@@ -9,15 +9,14 @@
 #import "GDPingViewController.h"
 #import "GDTextFieldCell.h"
 #import "GDPingOperation.h"
+#import "GDTextViewLogger.h"
 
 @interface GDPingViewController () <UITextFieldDelegate>
-
 @end
 
 @implementation GDPingViewController {
     dispatch_once_t _onceToken;
     UITextField *_textField;
-    GDLogger *_logger;
 }
 
 #pragma mark - UITextFieldDelegate
@@ -31,7 +30,7 @@
 #pragma mark - Parent Methods
 
 - (NSOperation *)generateOperation {
-    return [[GDPingOperation alloc] initWithLogger:_logger];
+    return [[GDPingOperation alloc] initWithLogger:self.logger];
 }
 
 - (BOOL)shouldStartWorking {
@@ -90,7 +89,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.title = @"Ping";
-    _logger = [GDLogger new];
 }
 
 - (void)viewDidAppear:(BOOL)animated {

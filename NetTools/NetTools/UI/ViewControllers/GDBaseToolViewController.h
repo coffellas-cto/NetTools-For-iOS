@@ -8,11 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
+@class GDTextViewLogger;
+
 @interface GDBaseToolViewController : UITableViewController {
 @protected
     NSOperation *_operation;
 }
 
+@property (nonatomic, readonly) GDTextViewLogger *logger;
 @property (nonatomic, readonly, getter=isWorking) BOOL working;
 
 - (void)startWorking;

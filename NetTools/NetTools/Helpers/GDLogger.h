@@ -10,6 +10,8 @@
 
 @interface GDLogger : NSObject
 
+@property (nonatomic, readonly) NSDateFormatter *dateFormatter;
+
 - (void)logLine:(NSString *)logString;
 
 @end
