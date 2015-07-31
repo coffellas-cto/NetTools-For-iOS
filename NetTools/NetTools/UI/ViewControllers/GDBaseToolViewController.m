@@ -71,7 +71,19 @@ const NSInteger logCellIndex = 2;
         return;
     }
     
+    _operation = [self generateOperation];
+    if (!_operation) {
+        _operation = [[[self operationClass] alloc] initWithLogger:self.logger];
+    }
+    
     [self prepareForWorking];
+    
+    __weak typeof(self) weakSelf = self;
+    [_operation setCompletionBlock:^{
+        dispatch_async(dispatch_get_main_queue(), ^{
+            [weakSelf stopWorking];
+        });
+    }];
     
     NSOperationQueue *newQueue = [[NSOperationQueue alloc] init];
     newQueue.name = NSStringFromClass([_operation class]);
@@ -87,7 +99,9 @@ const NSInteger logCellIndex = 2;
         return;
     }
     
-    [_operation cancel];
+    if (_operation.executing) {
+        [_operation cancel];
+    }
     
     _working = NO;
     [self.tableView reloadSections:[NSIndexSet indexSetWithIndex:1] withRowAnimation:(UITableViewRowAnimationFade)];
@@ -236,10 +250,6 @@ const NSInteger logCellIndex = 2;
         if (_working) {
             [self stopWorking];
         } else if ([self shouldStartWorking]) {
-            _operation = [self generateOperation];
-            if (!_operation) {
-                _operation = [[[self operationClass] alloc] initWithLogger:self.logger];
-            }
             [self startWorking];
         } else {
             [tableView deselectRowAtIndexPath:indexPath animated:YES];
