@@ -13,5 +13,6 @@
 @property (nonatomic, readonly) NSDateFormatter *dateFormatter;
 
 - (void)logLine:(NSString *)logString;
+- (void)logEmptyLine;
 
 @end

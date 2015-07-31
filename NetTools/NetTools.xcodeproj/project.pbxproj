@@ -20,8 +20,9 @@
 		9AEC9C5E1B65135200B25AFF /* GDTextFieldCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C5D1B65135200B25AFF /* GDTextFieldCell.m */; };
 		9AEC9C621B66A76600B25AFF /* GDNetOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C611B66A76600B25AFF /* GDNetOperation.m */; };
 		9AEC9C691B66A8D800B25AFF /* GDPingOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C681B66A8D800B25AFF /* GDPingOperation.m */; };
-		9AEC9C6D1B66B43300B25AFF /* GDLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C6C1B66B43300B25AFF /* GDLogger.m */; };
-		9AEC9C701B69559D00B25AFF /* GDTextViewLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C6F1B69559D00B25AFF /* GDTextViewLogger.m */; };
+		9AEC9C761B6C00E100B25AFF /* GDLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C731B6C00E100B25AFF /* GDLogger.m */; };
+		9AEC9C771B6C00E100B25AFF /* GDTextViewLogger.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C751B6C00E100B25AFF /* GDTextViewLogger.m */; };
+		9AEC9C7E1B6C048600B25AFF /* CHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = 9AEC9C7D1B6C048600B25AFF /* CHelpers.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,10 +62,12 @@
 		9AEC9C611B66A76600B25AFF /* GDNetOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDNetOperation.m; sourceTree = "<group>"; };
 		9AEC9C671B66A8D800B25AFF /* GDPingOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDPingOperation.h; sourceTree = "<group>"; };
 		9AEC9C681B66A8D800B25AFF /* GDPingOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDPingOperation.m; sourceTree = "<group>"; };
-		9AEC9C6B1B66B43300B25AFF /* GDLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDLogger.h; sourceTree = "<group>"; };
-		9AEC9C6C1B66B43300B25AFF /* GDLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDLogger.m; sourceTree = "<group>"; };
-		9AEC9C6E1B69559D00B25AFF /* GDTextViewLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTextViewLogger.h; sourceTree = "<group>"; };
-		9AEC9C6F1B69559D00B25AFF /* GDTextViewLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDTextViewLogger.m; sourceTree = "<group>"; };
+		9AEC9C721B6C00E100B25AFF /* GDLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDLogger.h; sourceTree = "<group>"; };
+		9AEC9C731B6C00E100B25AFF /* GDLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDLogger.m; sourceTree = "<group>"; };
+		9AEC9C741B6C00E100B25AFF /* GDTextViewLogger.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDTextViewLogger.h; sourceTree = "<group>"; };
+		9AEC9C751B6C00E100B25AFF /* GDTextViewLogger.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GDTextViewLogger.m; sourceTree = "<group>"; };
+		9AEC9C7C1B6C048600B25AFF /* CHelpers.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CHelpers.h; sourceTree = "<group>"; };
+		9AEC9C7D1B6C048600B25AFF /* CHelpers.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CHelpers.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,12 +204,22 @@
 		9AEC9C6A1B66B43300B25AFF /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				9AEC9C6B1B66B43300B25AFF /* GDLogger.h */,
-				9AEC9C6C1B66B43300B25AFF /* GDLogger.m */,
-				9AEC9C6E1B69559D00B25AFF /* GDTextViewLogger.h */,
-				9AEC9C6F1B69559D00B25AFF /* GDTextViewLogger.m */,
+				9AEC9C711B6C00E100B25AFF /* GDLogger */,
+				9AEC9C7C1B6C048600B25AFF /* CHelpers.h */,
+				9AEC9C7D1B6C048600B25AFF /* CHelpers.m */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9AEC9C711B6C00E100B25AFF /* GDLogger */ = {
+			isa = PBXGroup;
+			children = (
+				9AEC9C721B6C00E100B25AFF /* GDLogger.h */,
+				9AEC9C731B6C00E100B25AFF /* GDLogger.m */,
+				9AEC9C741B6C00E100B25AFF /* GDTextViewLogger.h */,
+				9AEC9C751B6C00E100B25AFF /* GDTextViewLogger.m */,
+			);
+			path = GDLogger;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,17 +321,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9AEC9C6D1B66B43300B25AFF /* GDLogger.m in Sources */,
+				9AEC9C761B6C00E100B25AFF /* GDLogger.m in Sources */,
 				9AEC9C5E1B65135200B25AFF /* GDTextFieldCell.m in Sources */,
 				9AEC9C371B6500C100B25AFF /* GDMainViewController.m in Sources */,
 				9AEC9C3A1B65038900B25AFF /* GDBaseToolViewController.m in Sources */,
-				9AEC9C701B69559D00B25AFF /* GDTextViewLogger.m in Sources */,
 				9AEC9C3D1B65064600B25AFF /* GDPingViewController.m in Sources */,
+				9AEC9C7E1B6C048600B25AFF /* CHelpers.m in Sources */,
 				9AEC9C0F1B64FFE000B25AFF /* AppDelegate.m in Sources */,
 				9AEC9C411B65075000B25AFF /* Constants.m in Sources */,
 				9AEC9C691B66A8D800B25AFF /* GDPingOperation.m in Sources */,
 				9AEC9C4B1B65078500B25AFF /* NetTools.xcdatamodeld in Sources */,
 				9AEC9C621B66A76600B25AFF /* GDNetOperation.m in Sources */,
+				9AEC9C771B6C00E100B25AFF /* GDTextViewLogger.m in Sources */,
 				9AEC9C4A1B65078500B25AFF /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

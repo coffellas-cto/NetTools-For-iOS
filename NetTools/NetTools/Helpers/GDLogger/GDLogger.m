@@ -16,6 +16,10 @@
     }];
 }
 
+- (void)logEmptyLine {
+    NSLog(@"");
+}
+
 - (instancetype)init
 {
     self = [super init];

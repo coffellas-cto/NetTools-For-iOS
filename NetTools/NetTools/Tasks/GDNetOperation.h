@@ -13,6 +13,8 @@
 
 @property (weak, readonly) GDLogger *logger;
 
+- (void)logDone;
+
 - (instancetype)initWithLogger:(GDLogger *)logger;
 
 @end

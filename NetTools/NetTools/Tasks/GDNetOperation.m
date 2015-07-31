@@ -10,6 +10,13 @@
 
 @implementation GDNetOperation
 
+- (void)logDone {
+    [self.logger logLine:@"Done."];
+    [self.logger logEmptyLine];
+}
+
+#pragma mark - Life Cycle
+
 - (instancetype)initWithLogger:(GDLogger *)logger {
     self = [super init];
     if (self) {

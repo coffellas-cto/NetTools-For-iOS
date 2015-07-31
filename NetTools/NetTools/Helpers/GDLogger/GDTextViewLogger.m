@@ -22,6 +22,12 @@
     }];
 }
 
+- (void)logEmptyLine {
+    [[NSOperationQueue mainQueue] addOperationWithBlock:^{
+        _textView.text = [NSString stringWithFormat:@"\n%@", _textView.text];
+    }];
+}
+
 - (instancetype)initWithTextView:(UITextView *)textView
 {
     self = [super init];
